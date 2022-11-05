@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from "./pages/Home";
+import Stocks from "./pages/Stocks";
+import About from "./pages/About";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import ErrorPage from "./pages/ErrorPage";
+import FullCard from "./components/FullCard";
 
-function App() {
+const App = () => {
+  const data = [
+    {
+      title: "AAPL",
+      description: "This is stock pricing data for Apple",
+    },
+    {
+      title: "GOOGL",
+      description: "This is stock pricing data for Google",
+    },
+    {
+      title: "IBM",
+      description: "This is stock pricing data for IBM",
+    },
+    {
+      title: "AMZN",
+      description: "This is stock pricing data for Amazon",
+    },
+    {
+      title: "TSLA",
+      description: "This is stock pricing data for Tesla",
+    },
+    {
+      title: "MSFT",
+      description: "This is stock pricing data for Microsoft",
+    },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav>
+        <Link to="/"> Home </Link>
+        <Link to="/about"> About </Link>
+        {/* <Link to="/stocks"> Stocks </Link> */}
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home data={data} />} />
+        <Route path="/about" element={<About />} />
+        {/* <Route path="/stocks" element={<Stocks />} /> */}
+        <Route path="/stocks/:title" element={<FullCard data={data} />} />
+        <Route path="/*" element={<ErrorPage />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
