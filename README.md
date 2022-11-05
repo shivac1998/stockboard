@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Stockboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. Requirements Documentation
 
-## Available Scripts
+### This repository will contain the source code for a dashboard application displaying stock prices with real-time market data.
 
-In the project directory, you can run:
+### This application will be created using React.js. Axios will be used to perform the GET request from the Alpha Vantage Stock API located here: https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=xxx
 
-### `npm start`
+### Since this project has been created with no outside collaboration, the only collaborative resource that will be used in the creation of this project will be GitHub and Git for version control and management.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 2. Architecture/Design Docs
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### The goal of this application is to display real-time market data of a variety of different stocks. The end-user should be able to type the stock ticker into a search bar to find and display a specific stock price. The arguments needed to use the API are displayed on the Finnhub website and are as follows-
 
-### `npm test`
+### Arguments:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### symbol (REQUIRED)
 
-### `npm run build`
+Symbol.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### resolution (REQUIRED)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Supported resolution includes 1, 5, 15, 30, 60, D, W, M .Some timeframes might not be available depending on the exchange.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### from (REQUIRED)
 
-### `npm run eject`
+UNIX timestamp. Interval initial value.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### to (REQUIRED)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+UNIX timestamp. Interval end value.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 3. End-User Docs
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Response Attributes:
 
-## Learn More
+c
+List of close prices for returned candles.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+h
+List of high prices for returned candles.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+l
+List of low prices for returned candles.
 
-### Code Splitting
+o
+List of open prices for returned candles.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+s
+Status of the response. This field can either be ok or no_data.
 
-### Analyzing the Bundle Size
+t
+List of timestamp for returned candles.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+v
+List of volume data for returned candles.
