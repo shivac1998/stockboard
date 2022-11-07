@@ -3,6 +3,7 @@ import "../App.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ErrorPage from "../pages/ErrorPage";
 
 const FullCard = () => {
   const { title } = useParams();
@@ -46,7 +47,7 @@ const FullCard = () => {
               <h1>{title}</h1>{" "}
             </div>
             <div>
-              Price: ${price} 
+              Price: ${price}
               Open: ${open}
               Change: {change}
             </div>
@@ -58,7 +59,7 @@ const FullCard = () => {
       </section>
     );
   } else {
-    return <div>isLoading</div>;
+    return <div className="errorpage">ErrorPage</div>;
   }
 };
 

@@ -77,3 +77,19 @@ section {
 .fullCard h1 {
   font-size: 70px;
 }
+
+.error {
+  font-size: 5vh;
+  text-align: center;
+  padding-bottom: 5vh;
+}
+
+.errortext {
+  text-align: center;
+  object-position: center;
+  padding-top: 5vh;
+}
+
+.errorh3 {
+  padding-top: 3vh;
+}
