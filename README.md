@@ -10,47 +10,10 @@
 
 ## 2. Architecture/Design Docs
 
-### The goal of this application is to display real-time market data of a variety of different stocks. The end-user should be able to type the stock ticker into a search bar to find and display a specific stock price. The arguments needed to use the API are displayed on the Finnhub website and are as follows-
-
-### Arguments:
-
-#### symbol (REQUIRED)
-
-Symbol.
-
-#### resolution (REQUIRED)
-
-Supported resolution includes 1, 5, 15, 30, 60, D, W, M .Some timeframes might not be available depending on the exchange.
-
-#### from (REQUIRED)
-
-UNIX timestamp. Interval initial value.
-
-#### to (REQUIRED)
-
-UNIX timestamp. Interval end value.
+### The goal of this application is to display market data of a variety of different stocks. The end-user should be able to type the stock ticker into a search bar to find and display a specific stock price. The arguments needed to use the API are displayed on the Alphavantage website.
 
 ## 3. End-User Docs
 
-### Response Attributes:
+### The user will be able to click on each of the six displayed stocks and view pricing data from the previous day's close.
 
-c
-List of close prices for returned candles.
-
-h
-List of high prices for returned candles.
-
-l
-List of low prices for returned candles.
-
-o
-List of open prices for returned candles.
-
-s
-Status of the response. This field can either be ok or no_data.
-
-t
-List of timestamp for returned candles.
-
-v
-List of volume data for returned candles.
+### Users can also navigate to any stock of their choosing by replacing the stock symbol in the web address when viewing a particular stock's data.
