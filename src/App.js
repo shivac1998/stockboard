@@ -9,27 +9,27 @@ const App = () => {
   const data = [
     {
       title: "AAPL",
-      description: "This is stock pricing data for Apple",
+      description: "Stock pricing data for Apple",
     },
     {
       title: "GOOGL",
-      description: "This is stock pricing data for Google",
+      description: "Stock pricing data for Google",
     },
     {
       title: "IBM",
-      description: "This is stock pricing data for IBM",
+      description: "Stock pricing data for IBM",
     },
     {
       title: "AMZN",
-      description: "This is stock pricing data for Amazon",
+      description: "Stock pricing data for Amazon",
     },
     {
       title: "TSLA",
-      description: "This is stock pricing data for Tesla",
+      description: "Stock pricing data for Tesla",
     },
     {
       title: "MSFT",
-      description: "This is stock pricing data for Microsoft",
+      description: "Stock pricing data for Microsoft",
     },
   ];
   return (
@@ -43,7 +43,7 @@ const App = () => {
         <Route path="/" element={<Home data={data} />} />
         <Route path="/about" element={<About />} />
         {/* <Route path="/stocks" element={<Stocks />} /> */}
-        <Route path="/stocks/:title" element={<FullCard data={data} />} />
+        <Route path="/stocks/:title" element={<FullCard />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </Router>

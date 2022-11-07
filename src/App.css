@@ -30,6 +30,7 @@ section {
   width: 300px;
   height: 260px;
   background: #18305a;
+  /* 003153  */
   color: #fff;
   padding: 40px;
   margin: 16px 0;
@@ -59,7 +60,7 @@ section {
 }
 
 .full .container {
-  max-width: 640px;
+  max-width: 100vh;
 }
 
 .fullCard {

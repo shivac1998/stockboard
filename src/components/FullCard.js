@@ -1,22 +1,65 @@
 import React from "react";
 import "../App.css";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-const FullCard = ({ data }) => {
+const FullCard = () => {
   const { title } = useParams();
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [stockInfo, setStockInfo] = useState(null);
 
-  <section className="full">
-    <div className="container">
-      {data
-        .filter((stockCard) => stockCard.title === title)
-        .map((stockCard, index) => (
-          <div key={index} className="FullCard">
-            <h1>{stockCard.title}</h1>
-            <p>{stockCard.description}</p>
+  useEffect(() => {
+    if (!isLoaded) {
+      fetch(
+        `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${title}&apikey=R9RQMHGJCJ3RRDVD`
+      )
+        .then((res) => res.json())
+        .then(
+          (res) => {
+            setIsLoaded(true);
+            setStockInfo(res);
+          },
+          (error) => {
+            setIsLoaded(true);
+            setError(error);
+          }
+        );
+    }
+  }, []);
+
+  console.log(stockInfo);
+  if (stockInfo) {
+    const open = stockInfo["Global Quote"]["02. open"];
+    const high = stockInfo["Global Quote"]["03. high"];
+    const price = stockInfo["Global Quote"]["05. price"];
+    const change = stockInfo["Global Quote"]["09. change"];
+    const volume = stockInfo["Global Quote"]["06. volume"];
+    const low = stockInfo["Global Quote"]["04. low"];
+
+    return (
+      <section className="full">
+        <div className="container">
+          <div className="fullCard">
+            <div>
+              <h1>{title}</h1>{" "}
+            </div>
+            <div>
+              Price: ${price} 
+              Open: ${open}
+              Change: {change}
+            </div>
+            Volume: {volume}
+            High: ${high}
+            Low: ${low}
           </div>
-        ))}
-    </div>
-  </section>;
+        </div>
+      </section>
+    );
+  } else {
+    return <div>isLoading</div>;
+  }
 };
 
 export default FullCard;

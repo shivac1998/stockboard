@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 function StockFetch() {
-  let { id } = useParams();
+  let { symbol } = useParams();
   const [stock, setStock] = useState(null);
 
   useEffect(() => {
-    console.log(id);
+    console.log(symbol);
     Axios.get(
-      `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${id}&apikey=R9RQMHGJCJ3RRDVD`
+      `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=R9RQMHGJCJ3RRDVD`
     ).then((response) => {
       console.log(response.data);
       setStock(response.data);
