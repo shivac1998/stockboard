@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ErrorPage from "../pages/ErrorPage";
 
-const FullCard = () => {
+const FullStock = () => {
   const { title } = useParams();
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -42,7 +42,7 @@ const FullCard = () => {
     return (
       <section className="full">
         <div className="container">
-          <div className="fullCard">
+          <div className="fullStock">
             <div>
               <h1>{title}</h1>{" "}
             </div>
@@ -59,8 +59,8 @@ const FullCard = () => {
       </section>
     );
   } else {
-    return <div className="errorpage">ErrorPage</div>;
+    return <ErrorPage />;
   }
 };
 
-export default FullCard;
+export default FullStock;
