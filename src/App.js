@@ -1,5 +1,4 @@
 import Home from "./pages/Home";
-import Stocks from "./pages/Stocks";
 import About from "./pages/About";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";

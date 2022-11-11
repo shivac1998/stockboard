@@ -11,7 +11,7 @@ section {
 }
 
 .container {
-  width: 100%;
+  width: auto;
   max-width: 980px;
   margin: auto;
 }
@@ -99,5 +99,14 @@ section {
   font-size: 5vh;
   display: inline;
   text-align: right;
-  color: wheat;
+  color: rgb(201, 144, 40);
+}
+
+.info {
+  display: inline-flex;
+  justify-content: space-between;
+  font-size: 4vh;
+  text-align: center;
+  /* padding-top: 5vh; */
+  padding: 3vh 20px;
 }

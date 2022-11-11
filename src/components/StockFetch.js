@@ -1,7 +1,6 @@
-import React from "react";
 import Axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function StockFetch() {
   let { symbol } = useParams();
@@ -28,9 +27,7 @@ export default StockFetch;
 // Quote Endpoint: Returns Price and Volume for stock of choice
 // https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=GOOGL&apikey=R9RQMHGJCJ3RRDVD
 
-{
-  /* https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=R9RQMHGJCJ3RRDVD */
-}
+/* https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=R9RQMHGJCJ3RRDVD */
 
 // Marketstack API key: 6f656e6ff77b1e350ba70a4e0e8932a1
 

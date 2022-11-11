@@ -1,7 +1,6 @@
 import React from "react";
 import "../App.css";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import ErrorPage from "../pages/ErrorPage";
 
@@ -32,28 +31,33 @@ const FullStock = () => {
 
   console.log(stockInfo);
   if (stockInfo) {
-    const open = stockInfo["Global Quote"]["02. open"];
-    const high = stockInfo["Global Quote"]["03. high"];
-    const price = stockInfo["Global Quote"]["05. price"];
-    const change = stockInfo["Global Quote"]["09. change"];
+    const open = Math.round(stockInfo["Global Quote"]["02. open"] * 100) / 100;
+    const high = Math.round(stockInfo["Global Quote"]["03. high"] * 100) / 100;
+    const price =
+      Math.round(stockInfo["Global Quote"]["05. price"] * 100) / 100;
+    const low = Math.round(stockInfo["Global Quote"]["04. low"] * 100) / 100;
+
+    const change = stockInfo["Global Quote"]["10. change percent"];
     const volume = stockInfo["Global Quote"]["06. volume"];
-    const low = stockInfo["Global Quote"]["04. low"];
 
     return (
       <section className="full">
         <div className="container">
           <div className="fullStock">
-            <div>
+            <div className="title">
               <h1>{title}</h1>{" "}
             </div>
-            <div>
-              Price: ${price}
-              Open: ${open}
-              Change: {change}
+            <div className="info">
+              <>Price: ${price} | </>
+              <>Open: ${open} | </>
+              <>Change: {change} </>
             </div>
-            Volume: {volume}
-            High: ${high}
-            Low: ${low}
+            <div className="info">
+              <>Volume: {volume} </>
+              <> | </>
+              <>High: ${high} </>
+              <> | Low: ${low} </>
+            </div>
           </div>
         </div>
       </section>

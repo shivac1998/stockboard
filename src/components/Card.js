@@ -6,7 +6,7 @@ const Card = ({ data }) => {
   return (
     <>
       {data.map((stockCard, index) => (
-        <div key={index} className="card">
+        <div className="card">
           <h1>{stockCard.title}</h1>
           <p>{stockCard.description}</p>
           <Link to={`/stocks/${stockCard.title}`}>View More</Link>
