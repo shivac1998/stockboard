@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Card = ({ data }) => {
   return (
     <>
-      {data.map((stockCard, index) => (
+      {data.map((stockCard) => (
         <div className="card">
           <h1>{stockCard.title}</h1>
           <p>{stockCard.description}</p>

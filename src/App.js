@@ -5,7 +5,6 @@ import ErrorPage from "./pages/ErrorPage";
 import FullStock from "./components/FullStock";
 import Favorites from "./pages/Favorites";
 
-
 const App = () => {
   const data = [
     {
@@ -41,13 +40,14 @@ const App = () => {
         <Link to="/favorites"> Favorites </Link>
         {/* <Link to="/stocks"> Stocks </Link> */}
       </nav>
-      
+
       <Routes>
         <Route path="/" element={<Home data={data} />} />
         <Route path="/about" element={<About />} />
         <Route path="/favorites" element={<Favorites />} />
         {/* <Route path="/stocks" element={<Stocks />} /> */}
         <Route path="/stocks/:title" element={<FullStock />} />
+        {/* <Route path="/stocks/:title" element={<Searchbar />} /> */}
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </Router>

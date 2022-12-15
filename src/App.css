@@ -78,6 +78,35 @@ section {
   font-size: 70px;
 }
 
+.favorite .container {
+  max-width: 33vh;
+  align-items: flex-start;
+}
+
+.favoriteStock {
+  width: 100%;
+  height: 500px;
+  background: #445688;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.favoriteStock h1 {
+  font-size: 7vh;
+}
+
+.favoriteInfo {
+  display: inline-flex;
+  justify-content: space-between;
+  font-size: 2vh;
+  text-align: center;
+  /* padding-top: 5vh; */
+  padding: 3vh 20px;
+}
+
 .error {
   font-size: 5vh;
   text-align: center;
