@@ -1,4 +1,3 @@
-import Axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ErrorPage from "../pages/ErrorPage";

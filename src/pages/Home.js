@@ -1,9 +1,13 @@
 import React from "react";
 import Card from "../components/Card";
 import Bar from "../components/Bar";
+import FavoritesContext from "../store/FavoritesContext";
+import { useContext } from "react";
 // import SearchClass from "../components/SearchClass";
 
-function Home({ data }) {
+function Home() {
+  const { favorites, setFavorites } = useContext(FavoritesContext);
+
   return (
     <section className="home">
       <div className="title">
@@ -11,7 +15,7 @@ function Home({ data }) {
         <Bar />
       </div>
       <div className="container">
-        <Card data={data} />
+        <Card favorites={favorites} />
       </div>
     </section>
   );

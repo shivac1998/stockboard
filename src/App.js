@@ -4,53 +4,38 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import FullStock from "./components/FullStock";
 import Favorites from "./pages/Favorites";
+import FavoritesContext from "./store/FavoritesContext";
+import { useState } from "react";
 
 const App = () => {
-  const data = [
-    {
-      title: "AAPL",
-      description: "Stock pricing data for Apple",
-    },
-    {
-      title: "GOOGL",
-      description: "Stock pricing data for Google",
-    },
-    {
-      title: "IBM",
-      description: "Stock pricing data for IBM",
-    },
-    {
-      title: "AMZN",
-      description: "Stock pricing data for Amazon",
-    },
-    {
-      title: "TSLA",
-      description: "Stock pricing data for Tesla",
-    },
-    {
-      title: "MSFT",
-      description: "Stock pricing data for Microsoft",
-    },
-  ];
+  const [favorites, setFavorites] = useState([
+    "AAPL",
+    "GOOGL",
+    "IBM",
+    "AMZN",
+    "TSLA",
+  ]);
   return (
-    <Router>
-      <nav>
-        <Link to="/"> Home </Link>
-        <Link to="/about"> About </Link>
-        <Link to="/favorites"> Favorites </Link>
-        {/* <Link to="/stocks"> Stocks </Link> */}
-      </nav>
+    <FavoritesContext.Provider value={{ favorites, setFavorites }}>
+      <Router>
+        <nav className="navBar">
+          <Link to="/"> Home </Link>
+          <Link to="/about"> About </Link>
+          <Link to="/favorites"> Favorites </Link>
+          {/* <Link to="/stocks"> Stocks </Link> */}
+        </nav>
 
-      <Routes>
-        <Route path="/" element={<Home data={data} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/favorites" element={<Favorites />} />
-        {/* <Route path="/stocks" element={<Stocks />} /> */}
-        <Route path="/stocks/:title" element={<FullStock />} />
-        {/* <Route path="/stocks/:title" element={<Searchbar />} /> */}
-        <Route path="/*" element={<ErrorPage />} />
-      </Routes>
-    </Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/favorites" element={<Favorites />} />
+
+          <Route path="/stocks/:title" element={<FullStock />} />
+
+          <Route path="/*" element={<ErrorPage />} />
+        </Routes>
+      </Router>
+    </FavoritesContext.Provider>
   );
 };
 

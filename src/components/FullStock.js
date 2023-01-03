@@ -1,15 +1,23 @@
 import React from "react";
 import "../App.css";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ErrorPage from "../pages/ErrorPage";
 import Bar from "./Bar";
+import FavoritesContext from "../store/FavoritesContext";
 
-const FullStock = () => {
+const FullStock = (props) => {
   const { title } = useParams();
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [stockInfo, setStockInfo] = useState(null);
+
+  const { favorites, setFavorites } = useContext(FavoritesContext);
+  const addToFavorites = (e) => {
+    setFavorites(favorites.concat(e.target.value));
+  };
+
+  const stockIsFavorite = false;
 
   useEffect(() => {
     if (!isLoaded) {
@@ -30,7 +38,6 @@ const FullStock = () => {
     }
   }, []);
 
-  console.log(stockInfo);
   if (stockInfo) {
     const open = Math.round(stockInfo["Global Quote"]["02. open"] * 100) / 100;
     const high = Math.round(stockInfo["Global Quote"]["03. high"] * 100) / 100;
@@ -59,6 +66,11 @@ const FullStock = () => {
               <>High: ${high} </>
               <> | Low: ${low} </>
             </div>
+          </div>
+          <div>
+            <button className="button" onClick={addToFavorites} value={title}>
+              {stockIsFavorite ? "Remove From Favorites" : "Add To Favorites"}
+            </button>
           </div>
         </div>
       </section>
