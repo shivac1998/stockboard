@@ -3,7 +3,6 @@ import About from "./pages/About";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import FullStock from "./components/FullStock";
-import Favorites from "./pages/Favorites";
 import FavoritesContext from "./store/FavoritesContext";
 import { useState } from "react";
 
@@ -18,17 +17,22 @@ const App = () => {
   return (
     <FavoritesContext.Provider value={{ favorites, setFavorites }}>
       <Router>
-        <nav className="navBar">
-          <Link to="/"> Home </Link>
-          <Link to="/about"> About </Link>
-          <Link to="/favorites"> Favorites </Link>
-          {/* <Link to="/stocks"> Stocks </Link> */}
-        </nav>
+        <div className="navBar">
+          <nav className="navBar">
+            <Link to="/" className="navHeader">
+              Home
+            </Link>
+            <Link to="/about" className="navHeader">
+              About
+            </Link>
+            {/* <Link to="/favorites"> Favorites </Link> */}
+          </nav>
+        </div>
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/favorites" element={<Favorites />} />
+          {/* <Route path="/favorites" element={<Favorites />} /> */}
 
           <Route path="/stocks/:title" element={<FullStock />} />
 

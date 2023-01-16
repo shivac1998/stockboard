@@ -1,23 +1,41 @@
 import React from "react";
 import "../App.css";
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef, useCallback } from "react";
 import ErrorPage from "../pages/ErrorPage";
-import Bar from "./Bar";
 import FavoritesContext from "../store/FavoritesContext";
+import Bar from "./Bar";
 
-const FullStock = (props) => {
+const FullStock = () => {
   const { title } = useParams();
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [stockInfo, setStockInfo] = useState(null);
+  const stockIsFavorite = useRef(false);
+  const toggle = useCallback(() => setFavorites(!stockIsFavorite));
 
   const { favorites, setFavorites } = useContext(FavoritesContext);
+
   const addToFavorites = (e) => {
     setFavorites(favorites.concat(e.target.value));
   };
 
-  const stockIsFavorite = false;
+  const removeFavorites = (e) => {
+    const newList = favorites.filter((e) => e.target.value !== e);
+    setFavorites(newList);
+
+    // console.log(e.target.value);
+  };
+
+  const favoriteHandler = () => {
+    if (stockIsFavorite) {
+      return addToFavorites, toggle();
+    } else {
+      return removeFavorites;
+    }
+  };
+
+  // const stockIsFavorite = false;
 
   useEffect(() => {
     if (!isLoaded) {
@@ -53,7 +71,7 @@ const FullStock = (props) => {
         <div className="container">
           <div className="fullStock">
             <div className="title">
-              <h1>{title}</h1>{" "}
+              <h1>{title}</h1>
             </div>
             <div className="info">
               <>Price: ${price} | </>
@@ -69,7 +87,7 @@ const FullStock = (props) => {
           </div>
           <div>
             <button className="button" onClick={addToFavorites} value={title}>
-              {stockIsFavorite ? "Remove From Favorites" : "Add To Favorites"}
+              {stockIsFavorite ? "Add To Favorites" : "Remove From Favorites"}
             </button>
           </div>
         </div>

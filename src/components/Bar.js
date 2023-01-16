@@ -1,7 +1,6 @@
 import React from "react";
-import FullStock from "./FullStock";
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Bar = () => {
   const [stockSymbol, setStockSymbol] = useState();
@@ -20,15 +19,16 @@ const Bar = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="searchBar-Container">
         <input
           type="text"
           id="search"
           name="searchbar"
           placeholder="Enter Stock Symbol"
           onChange={handleChange}
+          className="search-input"
         ></input>
-        <button>Submit</button>
+        {/* <button>Submit</button> */}
       </form>
     </div>
   );
