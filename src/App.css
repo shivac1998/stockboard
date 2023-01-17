@@ -135,7 +135,7 @@ section {
 }
 
 .title {
-  padding: 1vh;
+  padding: 4vh;
   font-size: 5vh;
   font-weight: 200;
   display: block;
@@ -196,9 +196,9 @@ section {
 .searchBar-Container {
   background: #fff;
   height: 30px;
-  width: 55%;
+  width: 50%;
   border-radius: 30px;
-  padding: 10px 20px;
+  padding: 20px 20px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -218,7 +218,7 @@ section {
   background: transparent;
   border: none;
   outline: none;
-  width: 20vh;
+  width: 10vw;
   font-weight: 500;
   font-size: 14px;
   transition: 1.5s;
