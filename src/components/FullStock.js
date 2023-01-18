@@ -6,30 +6,40 @@ import ErrorPage from "../pages/ErrorPage";
 import FavoritesContext from "../store/FavoritesContext";
 import Bar from "./Bar";
 
-const FullStock = () => {
+const FullStock = (stock) => {
   const { title } = useParams();
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [stockInfo, setStockInfo] = useState(null);
   const stockIsFavorite = useRef(false);
+
   const toggle = useCallback(() => setFavorites(!stockIsFavorite));
 
   const { favorites, setFavorites } = useContext(FavoritesContext);
 
   const addToFavorites = (e) => {
     setFavorites(favorites.concat(e.target.value));
+    return !stockIsFavorite;
+  };
+
+  const addFavorite = (favorites) => {
+    setFavorites((prevFavorites) => {
+      return [favorites, ...prevFavorites];
+    });
   };
 
   const removeFavorites = (e) => {
-    const newList = favorites.filter((e) => e.target.value !== e);
-    setFavorites(newList);
+    if (!stockIsFavorite) {
+      const newList = favorites.filter((e) => e.target.value !== e);
+      setFavorites(newList);
+    }
 
     // console.log(e.target.value);
   };
 
   const favoriteHandler = () => {
     if (stockIsFavorite) {
-      return addToFavorites, toggle();
+      return addToFavorites && toggle();
     } else {
       return removeFavorites;
     }
@@ -87,7 +97,7 @@ const FullStock = () => {
           </div>
           <div>
             <button className="button" onClick={addToFavorites} value={title}>
-              {stockIsFavorite ? "Add To Favorites" : "Remove From Favorites"}
+              {stockIsFavorite ? "Add To Watchlist" : "Remove From Watchlist"}
             </button>
           </div>
         </div>

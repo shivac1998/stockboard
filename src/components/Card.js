@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 const Card = ({ favorites }) => {
   return (
     <>
-      {favorites.map((favorite) => (
-        <div className="card" key={favorite}>
-          <h1>{favorite}</h1>
-          <Link to={`/stocks/${favorite}`}>View More</Link>
+      {favorites.map((stock) => (
+        <div className="card" key={stock}>
+          <h1>{stock}</h1>
+          <Link to={`/stocks/${stock}`}>View More</Link>
         </div>
       ))}
     </>

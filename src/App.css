@@ -233,3 +233,31 @@ section {
   display: inline-flexbox;
   margin-bottom: 5vh;
 }
+
+.stockList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-weight: 500;
+  font-size: medium;
+  /* justify-content: space-around; */
+  align-items: center;
+  width:100%;
+}
+
+.company {
+  padding: 10px;
+  color: rgb(121, 90, 33);
+}
+
+.companiesSection {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background-color: #9abbbb;
+}
+
+.containerCompanies {
+  width: 100%;
+  max-width: 980px;
+  margin: auto;
+}
