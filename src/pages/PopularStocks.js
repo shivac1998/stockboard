@@ -5,7 +5,7 @@ const PopularStocks = () => {
     <section className="companiesSection">
       <div className="containerCompanies">
         <div className="title">
-          <h1>Company Names with Symbols</h1>
+          <h1>Company Symbols Lookup</h1>
         </div>
         <div className="stockList">
           <ul className="company">AAPL - Apple, Inc.</ul>

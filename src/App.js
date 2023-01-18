@@ -18,7 +18,7 @@ const App = () => {
   return (
     <FavoritesContext.Provider value={{ favorites, setFavorites }}>
       <Router>
-        <div className="navBar">
+        <div className="navBarPadding">
           <nav className="navBar">
             <Link to="/" className="navHeader">
               Home

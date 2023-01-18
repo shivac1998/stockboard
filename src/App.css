@@ -135,6 +135,7 @@ section {
 }
 
 .title {
+  margin-top: 10vh;
   padding: 4vh;
   font-size: 5vh;
   font-weight: 200;
@@ -153,19 +154,11 @@ section {
   padding: 3vh 20px;
 }
 
-.badge {
-  background-color: lime;
-  color: white;
-  border-radius: 10px;
-  padding: 0 1vh;
-  margin-left: 0.5vh;
-}
-
 .navBar {
   width: 100%;
   background: #18305a;
   padding: 2.5vh;
-  margin-bottom: 5px;
+  margin-bottom: 50px;
   justify-content: space-between;
   font-weight: 500;
   font-size: x-large;
@@ -173,11 +166,12 @@ section {
   /* border-bottom: 10px solid rgb(0, 10, 80); */
   box-shadow: 0 2px 4px 0 #18305a;
   color: white;
+  position: fixed;
 }
 
 .navHeader {
   color: aliceblue;
-  padding: 1vh;
+  padding: 2vh;
   margin: 0%;
 }
 
@@ -241,7 +235,7 @@ section {
   font-size: medium;
   /* justify-content: space-around; */
   align-items: center;
-  width:100%;
+  width: 100%;
 }
 
 .company {
