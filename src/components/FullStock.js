@@ -50,6 +50,11 @@ const FullStock = (stock) => {
           (res) => {
             setIsLoaded(true);
             setStockInfo(res);
+            if (favorites.includes(title)) {
+              stockIsFavorite.current = true;
+            } else {
+              stockIsFavorite.current = false;
+            }
           },
           (error) => {
             setIsLoaded(true);
