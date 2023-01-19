@@ -13,39 +13,32 @@ const FullStock = (stock) => {
   const [stockInfo, setStockInfo] = useState(null);
   const stockIsFavorite = useRef(false);
 
-  const toggle = useCallback(() => setFavorites(!stockIsFavorite));
-
   const { favorites, setFavorites } = useContext(FavoritesContext);
 
-  const addToFavorites = (e) => {
-    setFavorites(favorites.concat(e.target.value));
-    return !stockIsFavorite;
-  };
-
-  const addFavorite = (favorites) => {
-    setFavorites((prevFavorites) => {
-      return [favorites, ...prevFavorites];
-    });
-  };
-
-  const removeFavorites = (e) => {
-    if (!stockIsFavorite) {
-      const newList = favorites.filter((e) => e.target.value !== e);
-      setFavorites(newList);
+  const addToFavorites = () => {
+    if (!favorites.includes(title)) {
+      setFavorites(favorites.concat(title));
+      stockIsFavorite.current = true;
     }
+  };
 
-    // console.log(e.target.value);
+  const removeFavorites = (symbol) => {
+    if (stockIsFavorite.current) {
+      const newList = favorites.filter((favorite) => favorite !== symbol);
+      setFavorites(newList);
+      stockIsFavorite.current = false;
+    }
   };
 
   const favoriteHandler = () => {
-    if (stockIsFavorite) {
-      return addToFavorites && toggle();
+    if (!stockIsFavorite.current) {
+      addToFavorites();
     } else {
-      return removeFavorites;
+      if (stockIsFavorite.current) {
+        removeFavorites(title);
+      }
     }
   };
-
-  // const stockIsFavorite = false;
 
   useEffect(() => {
     if (!isLoaded) {
@@ -66,7 +59,7 @@ const FullStock = (stock) => {
     }
   }, []);
 
-  if (stockInfo) {
+  if (stockInfo && stockInfo["Global Quote"]) {
     const open = Math.round(stockInfo["Global Quote"]["02. open"] * 100) / 100;
     const high = Math.round(stockInfo["Global Quote"]["03. high"] * 100) / 100;
     const price =
@@ -96,8 +89,10 @@ const FullStock = (stock) => {
             </div>
           </div>
           <div>
-            <button className="button" onClick={addToFavorites} value={title}>
-              {stockIsFavorite ? "Add To Watchlist" : "Remove From Watchlist"}
+            <button className="button" onClick={favoriteHandler} value={title}>
+              {stockIsFavorite.current
+                ? "Remove From Watchlist"
+                : "Add To Watchlist"}
             </button>
           </div>
         </div>

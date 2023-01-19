@@ -4,7 +4,7 @@ import Bar from "../components/Bar";
 import FavoritesContext from "../store/FavoritesContext";
 import { useContext } from "react";
 
-function Home() {
+function Home(favorite) {
   const { favorites, setFavorites } = useContext(FavoritesContext);
 
   return (
@@ -16,7 +16,7 @@ function Home() {
             <Bar />
           </div>
         </div>
-        <Card favorites={favorites} />
+        <Card key={favorite} symbol={favorite} favorites={favorites} />
       </div>
     </section>
   );
