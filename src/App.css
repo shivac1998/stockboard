@@ -71,6 +71,7 @@ section {
 
 .full .container {
   max-width: 100vh;
+  padding-top: 15vh;
 }
 
 .fullStock {
@@ -238,20 +239,122 @@ section {
   width: 100%;
 }
 
+.titleCompaniesContainer {
+  background: #18305a;
+  display: inline-block;
+  padding: 5vh;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  box-shadow: 4px 4px 6px 0 #4d5555;
+}
+
+.titleCompanies {
+  text-align: center;
+  color: rgb(189, 139, 47);
+  width: 100%;
+  font-size: 4vh;
+}
+
 .company {
   padding: 10px;
-  color: rgb(121, 90, 33);
+  color: rgb(179, 131, 43);
 }
 
 .companiesSection {
   width: 100%;
   min-height: 100vh;
-  display: flex;
+  display: inline-block;
   background-color: #9abbbb;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .containerCompanies {
+  display: block;
+  width: 90%;
+  max-width: 85vw;
+  background: #18305a;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 6px 0 #4d5555;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.aboutSection {
   width: 100%;
-  max-width: 980px;
-  margin: auto;
+  min-height: 100vh;
+  display: inline-block;
+  background-color: #9abbbb;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.containerAbout {
+  width: 95%;
+  max-width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  background: #18305a;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-bottom: 5vh;
+  box-shadow: 4px 4px 6px 0 #4d5555;
+  text-align: center;
+  /* position: relative; */
+}
+
+.containerAboutTitle {
+  background: #18305a;
+  display: inline-block;
+  padding: 5vh;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  box-shadow: 4px 4px 6px 0 #4d5555;
+}
+
+.aboutTitle {
+  padding: 4vh;
+  font-size: 4vh;
+  font-weight: 200;
+  display: inline-block;
+  text-align: center;
+  color: rgb(189, 139, 47);
+  width: 80%;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.abouth2 {
+  font-size: 4vh;
+  margin-bottom: 1vh;
+  font-weight: 500;
+  color: rgb(179, 131, 43);
+}
+
+.aboutp {
+  font-size: large;
+  font-weight: 400;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  color: rgb(197, 215, 231);
 }

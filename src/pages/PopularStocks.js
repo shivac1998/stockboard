@@ -3,10 +3,12 @@ import React from "react";
 const PopularStocks = () => {
   return (
     <section className="companiesSection">
-      <div className="containerCompanies">
-        <div className="title">
+      <div className="titleCompaniesContainer">
+        <div className="titleCompanies">
           <h1>Company Symbols Lookup</h1>
         </div>
+      </div>
+      <div className="containerCompanies">
         <div className="stockList">
           <ul className="company">AAPL - Apple, Inc.</ul>
           <ul className="company">AMZN - Amazon</ul>

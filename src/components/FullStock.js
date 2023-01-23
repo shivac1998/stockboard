@@ -40,27 +40,52 @@ const FullStock = (stock) => {
     }
   };
 
+  // useEffect(() => {
+  //   if (!isLoaded) {
+  //     fetch(
+  //       `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${title}&apikey=R9RQMHGJCJ3RRDVD`
+  //     )
+  //       .then((res) => res.json())
+  //       .then(
+  //         (res) => {
+  //           setIsLoaded(true);
+  //           setStockInfo(res);
+  //           if (favorites.includes(title)) {
+  //             stockIsFavorite.current = true;
+  //           } else {
+  //             stockIsFavorite.current = false;
+  //           }
+  //         },
+  //         (error) => {
+  //           setIsLoaded(true);
+  //           setError(error);
+  //         }
+  //       );
+  //   }
+  // }, []);
+
   useEffect(() => {
-    if (!isLoaded) {
-      fetch(
-        `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${title}&apikey=R9RQMHGJCJ3RRDVD`
-      )
-        .then((res) => res.json())
-        .then(
-          (res) => {
-            setIsLoaded(true);
-            setStockInfo(res);
-            if (favorites.includes(title)) {
-              stockIsFavorite.current = true;
-            } else {
-              stockIsFavorite.current = false;
-            }
-          },
-          (error) => {
-            setIsLoaded(true);
-            setError(error);
-          }
+    async function fetchData() {
+      try {
+        const res = await fetch(
+          `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${title}&apikey=R9RQMHGJCJ3RRDVD`
         );
+        if (!res.ok) throw new Error(res.statusText);
+        const json = await res.json();
+        setIsLoaded(true);
+        setStockInfo(json);
+        setIsLoaded(true);
+        if (favorites.includes(title)) {
+          stockIsFavorite.current = true;
+        } else {
+          stockIsFavorite.current = false;
+        }
+      } catch (error) {
+        setError(error);
+      }
+    }
+    if (!isLoaded) {
+      fetchData();
     }
   }, []);
 
