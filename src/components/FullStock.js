@@ -1,10 +1,9 @@
 import React from "react";
 import "../App.css";
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useContext, useRef, useCallback } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import ErrorPage from "../pages/ErrorPage";
 import FavoritesContext from "../store/FavoritesContext";
-import Bar from "./Bar";
 
 const FullStock = (stock) => {
   const { title } = useParams();
@@ -40,30 +39,6 @@ const FullStock = (stock) => {
     }
   };
 
-  // useEffect(() => {
-  //   if (!isLoaded) {
-  //     fetch(
-  //       `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${title}&apikey=R9RQMHGJCJ3RRDVD`
-  //     )
-  //       .then((res) => res.json())
-  //       .then(
-  //         (res) => {
-  //           setIsLoaded(true);
-  //           setStockInfo(res);
-  //           if (favorites.includes(title)) {
-  //             stockIsFavorite.current = true;
-  //           } else {
-  //             stockIsFavorite.current = false;
-  //           }
-  //         },
-  //         (error) => {
-  //           setIsLoaded(true);
-  //           setError(error);
-  //         }
-  //       );
-  //   }
-  // }, []);
-
   useEffect(() => {
     async function fetchData() {
       try {
@@ -72,7 +47,9 @@ const FullStock = (stock) => {
         );
         if (!res.ok) throw new Error(res.statusText);
         const json = await res.json();
-        setIsLoaded(true);
+        if ("Error Message" in json) {
+          throw new Error(json["Error Message"]);
+        }
         setStockInfo(json);
         setIsLoaded(true);
         if (favorites.includes(title)) {
@@ -89,7 +66,9 @@ const FullStock = (stock) => {
     }
   }, []);
 
-  if (stockInfo && stockInfo["Global Quote"]) {
+  if (error) {
+    return <ErrorPage message={error.message} />;
+  } else if (stockInfo && stockInfo["Global Quote"]) {
     const open = Math.round(stockInfo["Global Quote"]["02. open"] * 100) / 100;
     const high = Math.round(stockInfo["Global Quote"]["03. high"] * 100) / 100;
     const price =
@@ -129,7 +108,7 @@ const FullStock = (stock) => {
       </section>
     );
   } else {
-    return <ErrorPage />;
+    return <section className="full"></section>;
   }
 };
 

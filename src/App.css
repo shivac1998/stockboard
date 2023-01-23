@@ -17,7 +17,6 @@ section {
 }
 
 .home {
-  /* background: #445688; */
   background: #9abbbb;
 }
 
@@ -32,7 +31,6 @@ section {
   width: 300px;
   height: 260px;
   background: #18305a;
-  /* 003153  */
   color: aliceblue;
   padding: 40px;
   margin: 16px 16px;
@@ -65,7 +63,6 @@ section {
 }
 
 .full {
-  /* background: #2a3961; */
   background: #9abbbb;
 }
 
@@ -115,7 +112,6 @@ section {
   justify-content: space-between;
   font-size: 2vh;
   text-align: center;
-  /* padding-top: 5vh; */
   padding: 3vh 20px;
 }
 
@@ -151,7 +147,6 @@ section {
   justify-content: space-between;
   font-size: 4vh;
   text-align: center;
-  /* padding-top: 5vh; */
   padding: 3vh 20px;
 }
 
@@ -164,7 +159,6 @@ section {
   font-weight: 500;
   font-size: x-large;
   display: flex;
-  /* border-bottom: 10px solid rgb(0, 10, 80); */
   box-shadow: 0 2px 4px 0 #18305a;
   color: white;
   position: fixed;
@@ -234,7 +228,6 @@ section {
   grid-template-columns: repeat(3, 1fr);
   font-weight: 500;
   font-size: medium;
-  /* justify-content: space-around; */
   align-items: center;
   width: 100%;
 }
@@ -315,7 +308,6 @@ section {
   margin-bottom: 5vh;
   box-shadow: 4px 4px 6px 0 #4d5555;
   text-align: center;
-  /* position: relative; */
 }
 
 .containerAboutTitle {

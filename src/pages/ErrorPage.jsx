@@ -1,11 +1,12 @@
 import React from "react";
 
-function ErrorPage() {
+function ErrorPage({ message }) {
   return (
     <section className="full">
       <div className="container">
         <div className="fullStock">
           <div className="error">
+            <h2>{message}</h2>
             <h2>ERROR PAGE</h2>
             <h2>INVALID URL ENTERED</h2>
           </div>
