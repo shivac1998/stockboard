@@ -14,6 +14,8 @@
 
 ## 3. End-User Docs
 
-### The user will be able to click on each of the six displayed stocks and view pricing data from the previous day's close.
+### The user will be able search for any stock symbol and view pricing data from the previous day's close.
 
 ### Users can also navigate to any stock of their choosing by replacing the stock symbol in the web address when viewing a particular stock's data.
+
+### Users can add any stock they search for to the Watchlist and compare pricing data.
