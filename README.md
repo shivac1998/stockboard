@@ -4,7 +4,7 @@
 
 ### This repository will contain the source code for a dashboard application displaying stock prices with real-time market data.
 
-### This application will be created using React.js. Axios will be used to perform the GET request from the Alpha Vantage Stock API located here: https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=xxx
+### This application will be created using React.js. A GET request to the Alpha Vantage Stock will be used with the API located here: https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=xxx
 
 ### Since this project has been created with no outside collaboration, the only collaborative resource that will be used in the creation of this project will be GitHub and Git for version control and management.
 
