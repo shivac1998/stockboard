@@ -172,14 +172,24 @@ section {
 
 .button {
   font-weight: 200;
-  border-radius: 3px;
-  border-color: pink;
-  background-color: #fff;
-  color: #18305a;
+  font-size: larger;
+  border-radius: 10px;
+  border-color: rgb(84, 79, 80);
+  background-color: aliceblue;
   padding: 1vh 1vh;
   margin-top: 1vh;
   display: inline-flex;
-  justify-content: right;
+  box-shadow: 0 5px rgb(91, 91, 91);
+}
+
+.button:hover {
+  background-color: #8299bd;
+}
+
+.button:active {
+  background-color: aliceblue;
+  box-shadow: 0 5px rgb(91, 91, 91);
+  transform: translateY(4px);
 }
 
 .searchBar-Container {
@@ -349,4 +359,8 @@ section {
   margin-top: 2vh;
   margin-bottom: 2vh;
   color: rgb(197, 215, 231);
+}
+
+.watchlistButton {
+  color: #18305a;
 }
